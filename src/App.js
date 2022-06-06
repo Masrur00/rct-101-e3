@@ -4,13 +4,15 @@ import  Home from './pages/Home';
 import RequiredAuth from './hoc/RequiredAuth';
 
 import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <Login/>
+      <Navbar />
       <Routes>        
-        <Route path="/home" element={<RequiredAuth><Home  /></RequiredAuth>} />        
+        <Route path="/login" element={<Login  />} />        
+        <Route path="/" element={<RequiredAuth><Home  /></RequiredAuth>} />        
       </Routes>
     </div>
   );

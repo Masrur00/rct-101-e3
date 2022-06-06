@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
 
 const Product = () => {
   // Note: this id should come from api
-  const product = { id: 1 };
+  const [data] = useContext(CartContext);
+  const { id, name, description } = data;
   return (
-    <div data-cy={`product-${product.id}`}>
-      <h3 data-cy="product-name"></h3>
-      <h6 data-cy="product-description"></h6>
+    <div data-cy={`product-${id}`}>
+      <h3 data-cy="product-name">{name}</h3>
+      <h6 data-cy="product-description">{description}</h6>
       <button data-cy="product-add-item-to-cart-button"></button>
       <div>
         <button data-cy="product-increment-cart-item-count-button"></button>

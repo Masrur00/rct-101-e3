@@ -1,18 +1,24 @@
 import React, { useState, useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const [isAuth, toggledAuth] = useContext(AuthContext);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const nav = useNavigate();
 
-  const handleSubmit = () => {
-    // e.preventDefault();
-    if (email && password) toggledAuth();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(isAuth);
+    if (email && password) {
+      toggledAuth();
+      console.log(isAuth);
+      return nav("/");
+    }
   };
 
-  if (isAuth) return <Navigate to="/home" />;
+  if (isAuth) return <Navigate to="/" />;
   return (
     <div>
       <input data-cy="login-email" onChange={(e) => setEmail(e.target.value)} />

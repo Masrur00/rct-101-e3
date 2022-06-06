@@ -10,18 +10,23 @@ const Navbar = () => {
   const [count] = useContext(CartContext);
   const nav = useNavigate();
   return (
-    <div data-cy="navbar">
-      <Link data-cy="navbar-home-link" to="/home">
+    <div
+      data-cy="navbar"
+      style={{ display: "flex", justifyContent: "space-around" }}
+    >
+      <Link data-cy="navbar-home-link" to="/">
         Home
       </Link>
       <span data-cy="navbar-cart-items-count">{count}</span>
       <button
         data-cy="navbar-login-logout-button"
         onClick={() => {
-          toggledAuth();
-          nav.navigate("/login");
+          // toggledAuth();
+          // nav("/login");
         }}
-      >{`isAuth ? Logout : Login`}</button>
+      >
+        {isAuth ? "Logout" : "Login"}
+      </button>
     </div>
   );
 };
