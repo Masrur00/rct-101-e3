@@ -21,14 +21,17 @@ const Login = () => {
   if (isAuth) return <Navigate to="/" />;
   return (
     <div>
-      <input data-cy="login-email" onChange={(e) => setEmail(e.target.value)} />
-      <input
-        data-cy="login-password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button data-cy="login-submit" onClick={() => handleSubmit}>
-        Submit
-      </button>
+      <form onSubmit={handleSubmit}>
+        <input
+          data-cy="login-email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          data-cy="login-password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button data-cy="login-submit">Submit</button>
+      </form>
     </div>
   );
 };

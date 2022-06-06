@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
-
-const Product = () => {
+const Product = ({ id, name, description }) => {
   // Note: this id should come from api
-  const [data] = useContext(CartContext);
-  const { id, name, description } = data;
+
+  // const { id, name, description } = data;
+
   return (
     <div data-cy={`product-${id}`}>
       <h3 data-cy="product-name">{name}</h3>
